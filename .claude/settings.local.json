@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch --all --prune)",
+      "Bash(pwsh -File .specify/scripts/powershell/create-new-feature.ps1 -Json -ShortName \"console-todo-app\" -Number 1 \"/sp.specify Hackathon II – Phase 1 In-Memory Python Console Todo App\n\nTarget audience:\n- Hackathon evaluators reviewing Spec-Driven Development discipline\n- Developers with basic Python knowledge running the app from terminal\n\nFocus:\n- Demonstrate clean Spec-Kit Plus workflow\n- Implement a simple, predictable in-memory Todo application\n- Validate disciplined AI-assisted development using Claude Code\n\nFunctional requirements:\n- User can create a todo item with a title\n- User can list all existing todo items\n- User can mark a todo item as completed\n- User can update a todo item''s title\n- User can delete a todo item\n- User can exit the application cleanly\n\nBehavioral requirements:\n- Each todo must have a unique identifier within the session\n- Completed and incomplete todos must be distinguishable in output\n- Application must handle invalid user input gracefully\n- CLI prompts must be clear and user-friendly\n\nSuccess criteria:\n- Application runs successfully from the command line\n- All specified operations work exactly as described\n- Data exists only in memory during runtime\n- No crashes occur on incorrect or unexpected input\n- Implementation strictly follows the written specification\n- All code is generated through Claude Code using Spec-Kit Plus flow\n\nConstraints:\n- Language: Python\n- Interface: Command-line / console only\n- Storage: In-memory data structures only\n- Persistence: None \\(data resets on program exit\\)\n- External libraries: None unless strictly necessary\n- Timeline: Complete within Phase 1 deadline\n\nNot building:\n- File-based or database persistence\n- User authentication or multi-user support\n- Web interface or API endpoints\n- AI-driven features inside the application\n- Optimization or preparation for future phases\")",
+      "Bash(pwsh -File .specify/scripts/powershell/setup-plan.ps1 -Json)",
+      "Bash(pwsh -File .specify/scripts/powershell/check-prerequisites.ps1 -Json)",
+      "Bash(pwsh -File .specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks)"
+    ]
+  }
+}

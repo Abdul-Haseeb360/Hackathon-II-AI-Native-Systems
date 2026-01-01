@@ -1,55 +1,60 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: N/A → 1.0.0 (initial creation)
+- Added sections: All principles and governance sections
+- Templates requiring updates: N/A (new file)
+- Follow-up TODOs: None
+-->
+# Hackathon II – Phase 1 In-Memory Python Console Todo App Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Spec-driven development
+All code must be generated from written specifications. No implementation work should proceed without an approved specification document that clearly defines the requirements and behavior.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Environment discipline
+All development must occur inside a UV-managed virtual environment. This ensures consistent dependencies and reproducible builds across different development environments.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Simplicity over completeness
+Implement only what is required for Phase 1. Focus on the minimal viable functionality needed to demonstrate the core concepts without adding unnecessary features or complexity.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Determinism
+Application behavior must be predictable and consistent. The application should produce the same outputs for the same inputs and have no random or time-dependent behavior that could cause inconsistency.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Clarity
+Code and CLI interactions must be easy to understand for reviewers. All functionality should be clearly documented through code structure, naming conventions, and comments where necessary.
 
-### [PRINCIPLE_6_NAME]
+### Discipline
+No manual coding outside the AI-driven workflow. All changes must be made through Claude Code as the implementation agent following the Spec-Kit Plus methodology.
 
+## Key Standards
 
-[PRINCIPLE__DESCRIPTION]
+### UV Virtual Environment Requirement
+A Python virtual environment must be created using UV before any implementation. Development must follow the UV workflow: project initialization, venv creation, and activation. All development activities must occur within this managed environment.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### Specification-driven Implementation
+No code generation without an approved specification. All changes must be reflected in updated specs before execution. Use Claude Code strictly as the implementation agent and follow Spec-Kit Plus command sequence without shortcuts.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Constraints
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Language and Interface
+Language: Python only. Interface: Console / command-line only. Runtime environment: UV-managed Python virtual environment.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Storage and Scope
+Storage: In-memory data structures only (no files, no databases). Scope: Single-user, single-session usage. External services: Not allowed. Persistence across restarts: Not allowed.
+
+## Explicit Non-goals
+
+### Out of Scope Requirements
+No authentication or user accounts. No web interface or APIs. No AI features inside the application. No optimization for future phases. No deployment or containerization.
+
+## Success Criteria
+
+### Deliverables
+A working Python CLI Todo application that matches the written specification. All functionality implemented through Claude Code based on specs. All development performed inside an activated UV virtual environment. Zero deviation between specified behavior and actual behavior. Clear evidence of Spec-Kit Plus methodology usage.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution governs all development activities for the Hackathon II – Phase 1 In-Memory Python Console Todo App. All development must comply with these principles. Amendments to this constitution require explicit approval and documentation of the changes. The constitution supersedes all other development practices and guidelines.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-27 | **Last Amended**: 2025-12-27
