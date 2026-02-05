@@ -1,0 +1,46 @@
+# Default values for todo-chatbot-chart
+
+# Frontend configuration
+frontend:
+  replicaCount: 1
+  image:
+    repository: todo-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    type: NodePort
+    port: 3000
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+# Backend configuration
+backend:
+  replicaCount: 1
+  image:
+    repository: todo-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 8000
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+# Configuration for external dependencies
+neon:
+  enabled: true
+  databaseUrl: "postgresql://user:password@neon-host:5432/dbname"  # Base64 encoded in secret
+
+cohere:
+  enabled: true
+  apiKey: "your-cohere-api-key-here"  # Base64 encoded in secret

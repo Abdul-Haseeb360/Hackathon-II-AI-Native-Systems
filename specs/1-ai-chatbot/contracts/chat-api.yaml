@@ -1,0 +1,151 @@
+openapi: 3.0.0
+info:
+  title: AI Todo Chatbot API
+  description: API for AI-powered natural language todo management
+  version: 1.0.0
+servers:
+  - url: https://api.example.com
+    description: Production server
+  - url: https://staging-api.example.com
+    description: Staging server
+
+paths:
+  /api/chat:
+    post:
+      summary: Send a message to the AI chatbot
+      description: Process a natural language message and return AI response with task operations
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Successful response from AI chatbot
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+        '400':
+          description: Bad request - invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - invalid or missing JWT
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden - user not authorized for requested action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    ChatRequest:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: The natural language message from the user
+          example: "Add a task to buy groceries"
+        conversation_id:
+          type: integer
+          description: Optional conversation ID to continue existing conversation
+          example: 123
+        metadata:
+          type: object
+          description: Optional metadata for the request
+          additionalProperties: true
+
+    ChatResponse:
+      type: object
+      required:
+        - response
+        - conversation_id
+        - status
+      properties:
+        response:
+          type: string
+          description: The AI-generated response
+          example: "Task 'Buy groceries' added successfully"
+        conversation_id:
+          type: integer
+          description: The ID of the conversation
+          example: 123
+        status:
+          type: string
+          enum: [success, partial_success, error]
+          description: Status of the operation
+        tool_calls:
+          type: array
+          items:
+            $ref: '#/components/schemas/ToolCall'
+        tool_results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ToolResult'
+
+    ToolCall:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the tool that was called
+          example: "add_task"
+        parameters:
+          type: object
+          description: Parameters passed to the tool
+          example: {"title": "Buy groceries", "user_id": "abc-123"}
+
+    ToolResult:
+      type: object
+      properties:
+        tool_call_id:
+          type: string
+          description: ID of the tool call this result corresponds to
+        result:
+          type: object
+          description: Result of the tool call
+          example: {"task_id": 456, "status": "created"}
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: "INVALID_INPUT"
+        message:
+          type: string
+          description: Human-readable error message
+          example: "The request body is invalid"
+        details:
+          type: object
+          description: Additional error details
+          additionalProperties: true

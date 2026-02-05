@@ -1,0 +1,29 @@
+# Built charts to be ignored
+*.tgz
+*.tar.gz
+
+# Ignore chart template output
+charts/
+
+# Ignore .helmignore itself
+.helmignore
+
+# Ignore backups
+*.bak
+*.backup
+*.old
+
+# Ignore temp files
+tmp/
+temp/
+*.tmp
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore OS files
+.DS_Store
+Thumbs.db

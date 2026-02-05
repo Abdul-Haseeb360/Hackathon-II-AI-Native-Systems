@@ -1,0 +1,125 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+dist/
+build/
+.next/
+.nuxt/
+public/build/
+coverage/
+*.min.js
+*.min.css
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime
+npm/
+tmp/
+temp/
+*.tmp
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Kubernetes
+*.secret.yaml
+secrets/
+.kube/
+kubeconfig*
+
+# Docker
+.dockerignore
+Dockerfile.*
+.docker/
+
+# Helm
+.helm/
+charts/
+*.tgz
+.packages/
+
+# Python
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.sqlite
+*.sqlite3
+.Python
+[nN]ode_modules/
+*.gcda
+*.gcno
+.coverage
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git/
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
+
+# JavaScript/Node.js
+jspm_packages/
+typings/
+.flowconfig
+.nyc_output
+testem.log
+testem.yml
+node_modules/
+.cache/
+parcel-cache/
+.svelte-kit/
+.c8/
+
+# Database
+*.db
+*.db-journal
+
+# Environment specific
+local/
+dev/
+prod/
+.env.backup
+.env.local.backup
+.env.staging
+.env.staging.local
+.env.production
+.env.production.local
+.env.test
+.env.test.local
+.env.dev
+.env.dev.local
+.env.development
+.env.development.local

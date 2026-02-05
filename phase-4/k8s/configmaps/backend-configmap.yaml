@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: todo-app
+data:
+  API_HOST: "0.0.0.0"
+  API_PORT: "8000"
+  NODE_ENV: "production"
+  # Database connection will be handled via secrets
+  # External API configurations
+  COHERE_API_ENDPOINT: "https://api.cohere.ai/v1/chat"
